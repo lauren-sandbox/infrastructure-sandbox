@@ -1,3 +1,8 @@
+locals {
+  env         = read_terragrunt_config(find_in_parent_folders("env.hcl"))
+  environment = local.env.locals.environment
+}
+
 remote_state {
   backend = "s3"
   generate = {
